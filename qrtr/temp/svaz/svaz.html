@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/stat/css/main.css">
+    <link rel="stylesheet" href="/stat/css/header.css">
+    <link rel="stylesheet" href="/stat/css/contact.css">
+    <title>Мемориал | Внести правки</title>
+</head>
+<body>
+    <header class="qr-header">
+        <div class="logo" onclick="location.assign(`{% url 'home' %}`)">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M9 3H3V9H5V5H9V3ZM3 21V15H5V19H9V21H3ZM15 3V5H19V9H21V3H15ZM19 15H21V21H15V19H19V15ZM7 7H11V11H7V7ZM7 13H11V17H7V13ZM17 7H13V11H17V7ZM13 13H17V17H13V13Z" fill="white"/>
+            </svg>
+            <span>
+                <h1>QR Мемориал</h1>
+            </span>
+        </div>
+        <div class="qr-gerb">
+            <img src="/media/image/gerb_severnaya_osetiya_Abali.ru.svg" alt="">
+        </div>
+        <div class="contact">
+            <button class="changes" onclick="location.assign(`{% url 'svaz' %}`)"><h1>Связаться</h1></button>
+        </div>
+    </header>
+    <main class="qr-main"> 
+        <div class="qr-bg"></div>
+        <section class="contact-form">
+            <div class="contact-title-container">
+                <h1>Форма обратной связи/внесения правок</h1>
+            </div>
+            <form method="post" class="contact-main-from">
+                {% csrf_token %}
+                {{ form.last_name }} 
+                {{ form.first_name }}
+                {{ form.sposob }}
+                {{ form.pravki }}
+                <button type="submit" class="send-button"><h3>Отправить</h3></button>
+                <h3>*Заполните все поля и отправьте форму.</h3>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

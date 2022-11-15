@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8"> 
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Мемориал</title>
+    <link rel="shortcut icon" href="/media/image/icon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/stat/css/main.css?t={% now "U" %}">
+    <link rel="stylesheet" href="/stat/css/header.css?t={% now "U" %}"> 
+    <link rel="stylesheet" href="/stat/css/video.css?t={% now "U" %}"> 
+    <link href="https://vjs.zencdn.net/7.20.3/video-js.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/stat/css/videojs.css?t={% now "U" %}"> 
+</head> 
+<body>
+    <header class="qr-header">
+        <div class="logo" onclick="location.assign(`{% url 'home' %}`)">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M9 3H3V9H5V5H9V3ZM3 21V15H5V19H9V21H3ZM15 3V5H19V9H21V3H15ZM19 15H21V21H15V19H19V15ZM7 7H11V11H7V7ZM7 13H11V17H7V13ZM17 7H13V11H17V7ZM13 13H17V17H13V13Z" fill="white"/>
+            </svg>
+            <span>
+                <h1>QR Мемориал</h1>
+            </span>
+        </div>
+        <div class="qr-gerb">
+            <img src="/media/image/gerb_severnaya_osetiya_Abali.ru.svg" alt="">
+        </div>
+        <div class="contact">
+            <button class="changes" onclick="location.assign(`{% url 'svaz' %}`)"><h1>Связаться</h1></button>
+        </div>
+    </header> 
+    <main class="qr-main"> 
+        <div class="qr-bg"></div>
+        <section class="video-init">
+            {% block content %} 
+            {% endblock content %}
+            {% for video in video_list %}
+            <div class="video-container" data-id="{% url 'video' video.id %}">
+                <div class="video-content">
+                    <div class="video-info">
+                        <h1 class="video-title">{{ video.title }}</h1>
+                        <p class="video-anonce">{{ video.anons|slice:":600" }}</p>
+                        <button class="video-link" onclick="location.assign(`{% url 'video' video.id %}`)"><h1>Перейти к видео</h1></button>
+                    </div> 
+                    <div class="video-intro">
+                        <img src="{{ video.image.url }}" alt="" class="video-cover">
+                        <span class="video-date">{{ video.create_at }}</span>
+                    </div>
+                </div>
+                <div class="video-qr"> 
+                    <button class="video-qr-gen">
+                        <svg  
+                        class="svg-play"
+                        width="40"
+                        height="40"
+                        viewBox="0 0 24 24"
+                        fill="none" 
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path d="M15 12.3301L9 16.6603L9 8L15 12.3301Z" fill="black" />
+                      </svg>
+                    </button>
+                </div>
+            </div>
+            {% endfor %}
+        </section>
+    </main>
+</body>
+<script src="https://vjs.zencdn.net/7.20.3/video.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script type="module" src="/stat/js/main.js?t={% now "U" %}"></script>
+</html>

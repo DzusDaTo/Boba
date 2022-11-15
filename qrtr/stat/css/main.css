@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: #222224; 
+}
+
+.qr-main {
+    width: 100%;
+    height: 100%;
+}
+
+.qr-bg {
+    background: url('/media/image/vld-bg.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    z-index: 0;
+    position: fixed;
+    display: block;
+    filter: blur(4px);
+}
+ 
+.video-init {
+    z-index: 999;
+    padding: 2%;
+    display: flex; 
+    width: 100%;
+    height: 100vh;
+    flex-direction: column;
+    gap: 46px;
+    align-items: flex-start; 
+    justify-content: flex-start; 
+    box-sizing: border-box;
+    position: absolute;
+    top: 12%;
+} 
+
+.video-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    height: 25%;
+}
+
+.video-content {
+    color: black;
+    display: flex;
+    width: 60%;
+    flex-direction: row;
+    box-sizing: border-box;
+    padding: 12px;
+    height: 100%;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0px 0px 8px 4px rgba(0, 0, 0, 0.514);
+    transition: all 0.5s;
+}
+
+.video-cover {
+    width: 196px;
+    height: 166px;
+    border-radius: 12px;
+}
+
+.video-info {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.video-intro {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between; 
+    margin-left: auto;
+}
+
+.video-date {
+    color: rgba(0, 0, 0, 0.808);
+    font-size: small;
+}
+
+.video-link {
+    background-color: black;
+    border: none;
+    width: 10rem;
+    height: 2.5rem;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: all .5s;
+} 
+
+.video-link:hover{
+    box-shadow: 0px 0px 8px 2px black;
+}
+
+.video-link > h1 {
+    color: white;  
+    font-size: small;
+}
+
+*::-webkit-scrollbar {
+    width: 4px;
+}
+
+*::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+background-color: white; 
+border-radius: 20px; 
+border: 20px solid transparent;
+}
+
+.video-qr {
+    width: auto;
+    height: 100%;
+}
+
+.video-qr-gen {
+    height: 100%; 
+    cursor: pointer; 
+    background-color: white; 
+    border-radius: 8px; 
+    border: none;
+    transition: all .5s; 
+}
+
+.video-qr-gen:hover {
+    box-shadow: 0px 0px 8px 2px black;
+}
+
+.video-generic {
+    width: 12%;
+    height: 100%;
+    background-color: white;
+    padding: 14px;
+    border-radius: 12px;
+    box-sizing: border-box;
+    opacity: 0;
+    transition: all 1s;
+}
+
+.svg-play {
+    transition: all .5s;
+}
+
+.video-generic img {
+    width: 100%;
+    height: 100%;
+}

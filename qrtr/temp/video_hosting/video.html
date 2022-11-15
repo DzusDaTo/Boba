@@ -1,0 +1,22 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+<div class="video-full-content">
+  <div class="video-full-anonce">
+    <h2 class="video-about-title">{{ video.title }}</h2>
+    <p class="video-discription">{{ video.anons }} </p>
+      <p>{{ video.total_views }}</p>
+  </div>
+  <div class="video-full-tag">
+            <video
+                class="video-js"
+                controls
+                preload="auto"
+                data-setup="{}"
+            >
+              <source src="{% url 'stream' video.id %}" type="video/mp4"/>
+              <source src="{% url 'stream' video.id %}" type="video/webm"/>
+            </video>
+  <p class="video-full-date">{{ video.create_at }} </p>
+</div>
+{% endblock content %}
